@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+prod_rag_venv/
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# FAISS
+faiss_store/
+
+# Logs
+*.log
+
+# VS Code
+.vscode/

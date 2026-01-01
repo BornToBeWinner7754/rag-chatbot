@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  rag-api:
+    build: .
+    container_name: rag-api
+    ports:
+      - "8000:80"
+    env_file:
+      - .env
+    volumes:
+      - faiss_data:/app/faiss_store
+    restart: always
+
+  rag-worker:
+    build: .
+    container_name: rag-worker
+    command: python app/worker.py
+    env_file:
+      - .env
+    volumes:
+      - faiss_data:/app/faiss_store
+    restart: always
+
+volumes:
+  faiss_data:
